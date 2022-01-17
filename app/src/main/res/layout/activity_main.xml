@@ -6,12 +6,10 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/btn_press"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text"
-        android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:adjustViewBounds="true"
+        android:src="@drawable/image_1" />
 
 </LinearLayout>
