@@ -6,16 +6,20 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText;
-    private TextView textView;
+    private TextInputLayout textInputLayout;
+    private TextInputEditText textInputEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        editText = findViewById(R.id.edt_edit_text);
-        textView = findViewById(R.id.tv_text_view);
+        textInputLayout = findViewById(R.id.layout_input);
+        textInputEditText = findViewById(R.id.edt_input);
 
         textChangedListener();
 
@@ -36,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
     //this function detects whether enter button of keyboard is pressed!
     private void onKeyListener() {
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        textInputEditText.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    Toast.makeText(getApplicationContext(), "Enter pressed", Toast.LENGTH_SHORT).show();
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    Toast.makeText(getApplicationContext(), "goooooo", Toast.LENGTH_SHORT).show();
+                    return true;
                 }
                 return false;
             }
@@ -48,16 +53,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void textChangedListener() {
-        editText.addTextChangedListener(new TextWatcher() {
+        textInputEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
-                textView.setText(s.toString());
+                if (Character.isDigit(s.toString().charAt(s.toString().length() - 1))) {
+                    textInputLayout.setError("Digit input");
+                } else {
+                    textInputLayout.setErrorEnabled(false);
+                }
             }
         });
     }
