@@ -5,18 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputLayout textInputLayout;
-    private TextInputEditText textInputEditText;
-    private Button confirmButton;
+    private EditText editText;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,39 +26,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        textInputLayout = findViewById(R.id.ttl_password);
-        textInputEditText = findViewById(R.id.edt_change_listener);
-        confirmButton = findViewById(R.id.btn_confirm);
+        editText = findViewById(R.id.edt_edit_text);
+        textView = findViewById(R.id.tv_text_view);
 
-        confirmButton.setOnClickListener(new View.OnClickListener() {
+        textChangedListener();
+
+        onKeyListener();
+    }
+
+    //this function detects whether enter button of keyboard is pressed!
+    private void onKeyListener() {
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View v) {
-                if (textInputEditText.getText().toString().isEmpty()) {
-                    textInputLayout.setError("Empty field");
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    Toast.makeText(getApplicationContext(), "Enter pressed", Toast.LENGTH_SHORT).show();
                 }
+                return false;
             }
         });
+    }
 
-        textInputEditText.addTextChangedListener(new TextWatcher() {
+    private void textChangedListener() {
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!s.toString().isEmpty()) {
-                    textInputLayout.setErrorEnabled(false);
-                }
-
-                if (s.toString().length() > 12) {
-                    textInputLayout.setError("Very long");
-                }
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                textView.setText(s.toString());
             }
         });
     }
