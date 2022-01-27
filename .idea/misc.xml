@@ -3,8 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/activity_main.xml" value="0.16296296296296298" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/drawable/button_dashed.xml" value="0.2203125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/drawable/edittext_rounded.xml" value="0.2203125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/activity_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/button_dashed.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_contact_data.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_contact_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_first.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_first_object.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_post.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/fragment_second_object.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/item_book.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppJava/app/src/main/res/layout/item_contact.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
